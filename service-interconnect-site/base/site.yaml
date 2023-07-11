@@ -5,6 +5,7 @@ metadata:
   namespace: demo
 data:
   console: "true"
+  name: "my-site"
   flow-collector: "true"
   console-user: "admin"
   console-password: "admin"

@@ -1,0 +1,18 @@
+resources:
+- ../base
+patchesJson6902:
+- target:
+    version: v1
+    kind: ConfigMap
+    name: skupper-site
+  patch: |-
+  - op: replace
+    path: /data/console
+    value: false
+  - op: replace
+    path: /data/name
+    name: hpe-site
+  - op: remove
+    path: /data/console-user
+  - op: remove
+    path: /data/console-password
