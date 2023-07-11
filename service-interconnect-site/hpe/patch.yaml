@@ -1,6 +1,6 @@
 - op: replace
   path: /data/console
-  value: false
+  value: 'false'
 - op: replace
   path: /data/name
   value: hpe-site
