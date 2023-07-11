@@ -1,0 +1,10 @@
+- op: replace
+  path: /data/console
+  value: false
+- op: replace
+  path: /data/name
+  value: hpe-site
+- op: remove
+  path: /data/console-user
+- op: remove
+  path: /data/console-password
