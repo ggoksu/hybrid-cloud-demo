@@ -1,6 +1,6 @@
 resources:
 - ../base
-patchesJson6902:
+patches:
 - target:
     version: v1
     kind: ConfigMap
