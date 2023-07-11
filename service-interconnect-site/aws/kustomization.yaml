@@ -11,7 +11,7 @@ patchesJson6902:
     value: false
   - op: replace
     path: /data/name
-    name: aws-site
+    value: aws-site
   - op: remove
     path: /data/console-user
   - op: remove

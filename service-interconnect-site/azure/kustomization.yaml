@@ -11,7 +11,7 @@ patchesJson6902:
     value: false
   - op: replace
     path: /data/name
-    name: azure-site
+    value: azure-site
   - op: remove
     path: /data/console-user
   - op: remove
