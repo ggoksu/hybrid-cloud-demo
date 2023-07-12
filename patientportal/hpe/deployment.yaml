@@ -45,8 +45,7 @@ spec:
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-      securityContext:
-        runAsNonRoot: true
+      securityContext: {}
       schedulerName: default-scheduler
   strategy:
     type: RollingUpdate
