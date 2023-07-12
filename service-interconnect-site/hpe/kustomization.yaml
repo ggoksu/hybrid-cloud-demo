@@ -1,6 +1,5 @@
 resources:
 - ../base
-- loadgenerator.yaml
 patches:
 - target:
     version: v1
