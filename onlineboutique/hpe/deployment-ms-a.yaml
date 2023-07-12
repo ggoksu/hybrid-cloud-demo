@@ -148,7 +148,7 @@ metadata:
   name: productcatalogservice
   annotations:
     skupper.io/address: "productcatalogservice"
-    skupper.io/port: "3350"
+    skupper.io/port: "3550"
     skupper.io/proxy: "http2"
 spec:
   selector:
