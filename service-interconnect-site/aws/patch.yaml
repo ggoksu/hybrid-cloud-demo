@@ -1,6 +1,3 @@
 - op: replace
-  path: /data/console
-  value: 'true'
-- op: replace
   path: /data/name
   value: aws-site

@@ -6,4 +6,3 @@ patches:
     kind: ConfigMap
     name: skupper-site
   path: patch.yaml
-

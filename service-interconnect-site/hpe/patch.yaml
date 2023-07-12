@@ -8,3 +8,9 @@
   path: /data/console-user
 - op: remove
   path: /data/console-password
+- op: remove
+  path: /data/router-console
+- op: remove
+  path: /data/console-ingress
+- op: remove
+  path: /data/console-authentication
