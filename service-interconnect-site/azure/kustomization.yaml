@@ -1,6 +1,5 @@
 resources:
 - ../base
-- deployment-ms-c.yaml
 patches:
 - target:
     version: v1
