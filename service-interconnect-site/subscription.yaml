@@ -1,0 +1,128 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: service-interconnect
+  namespace: demo
+spec:
+  componentKinds:
+    - group: apps.open-cluster-management.io
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - service-interconnect
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: service-interconnect-subscription-aws
+  namespace: demo
+  annotations:
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: service-interconnect-site/aws
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: service-interconnect
+spec:
+  channel: ggithubcom-ggoksu-hybrid-cloud-demo-ns/ggithubcom-ggoksu-hybrid-cloud-demo
+  placement:
+    placementRef:
+      name: service-interconnect-placement-aws
+      kind: Placement
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: service-interconnect-subscription-azure
+  namespace: demo
+  annotations:
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: service-interconnect-site/azure
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: service-interconnect
+spec:
+  channel: ggithubcom-ggoksu-hybrid-cloud-demo-ns/ggithubcom-ggoksu-hybrid-cloud-demo
+  placement:
+    placementRef:
+      name: service-interconnect-placement-azure
+      kind: Placement
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: service-interconnect-subscription-hpe
+  namespace: demo
+  annotations:
+    apps.open-cluster-management.io/git-branch: main
+    apps.open-cluster-management.io/git-path: service-interconnect-site/hpe
+    apps.open-cluster-management.io/reconcile-option: merge
+  labels:
+    app: service-interconnect
+spec:
+  channel: ggithubcom-ggoksu-hybrid-cloud-demo-ns/ggithubcom-ggoksu-hybrid-cloud-demo
+  placement:
+    placementRef:
+      name: service-interconnect-placement-hpe
+      kind: Placement
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: service-interconnect-placement-aws
+  namespace: demo
+  labels:
+    app: service-interconnect
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: name
+              operator: In
+              values:
+                - aws
+  clusterSets:
+    - demo
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: service-interconnect-placement-azure
+  namespace: demo
+  labels:
+    app: service-interconnect
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: name
+              operator: In
+              values:
+                - azure
+  clusterSets:
+    - demo
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: service-interconnect-placement-hpe
+  namespace: demo
+  labels:
+    app: service-interconnect
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: name
+              operator: In
+              values:
+                - hpe
+  clusterSets:
+    - demo
+
