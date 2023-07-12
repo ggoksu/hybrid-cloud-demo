@@ -15,9 +15,9 @@ kind: Deployment
 metadata:
   name: emailservice
   annotations:
-    skupper.io/address: emailservice
-    skupper.io/port: 5000
-    skupper.io/proxy: http2
+    skupper.io/address: "emailservice"
+    skupper.io/port: "5000"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -54,9 +54,9 @@ kind: Deployment
 metadata:
   name: paymentservice
   annotations:
-    skupper.io/address: paymentservice
-    skupper.io/port: 50051
-    skupper.io/proxy: http2
+    skupper.io/address: "paymentservice"
+    skupper.io/port: "50051"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -89,9 +89,9 @@ kind: Deployment
 metadata:
   name: shippingservice
   annotations:
-    skupper.io/address: shippingservice
-    skupper.io/port: 50051
-    skupper.io/proxy: http2
+    skupper.io/address: "shippingservice"
+    skupper.io/port: "50051"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:

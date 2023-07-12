@@ -16,9 +16,9 @@ kind: Deployment
 metadata:
   name: checkoutservice
   annotations:
-    skupper.io/address: checkoutservice
-    skupper.io/port: 5050
-    skupper.io/proxy: http2
+    skupper.io/address: "checkoutservice"
+    skupper.io/port: "5050"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -66,9 +66,9 @@ kind: Deployment
 metadata:
   name: cartservice
   annotations:
-    skupper.io/address: cartservice
-    skupper.io/port: 7070
-    skupper.io/proxy: http2
+    skupper.io/address: "cartservice"
+    skupper.io/port: "7070"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -102,9 +102,9 @@ kind: Deployment
 metadata:
   name: currencyservice
   annotations:
-    skupper.io/address: currencyservice
-    skupper.io/port: 7000
-    skupper.io/proxy: http2
+    skupper.io/address: "currencyservice"
+    skupper.io/port: "7000"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -142,9 +142,9 @@ kind: Deployment
 metadata:
   name: redis-cart
   annotations:
-    skupper.io/address: redis-cart
-    skupper.io/port: 6379
-    skupper.io/proxy: http2
+    skupper.io/address: "redis-cart"
+    skupper.io/port: "6379"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -179,9 +179,9 @@ kind: Deployment
 metadata:
   name: adservice
   annotations:
-    skupper.io/address: adservice
-    skupper.io/port: 9555
-    skupper.io/proxy: http2
+    skupper.io/address: "adservice"
+    skupper.io/port: "9555"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:

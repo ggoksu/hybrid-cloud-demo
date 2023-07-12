@@ -16,9 +16,9 @@ kind: Deployment
 metadata:
   name: recommendationservice
   annotations:
-    skupper.io/address: recommendationservice
-    skupper.io/port: 8080
-    skupper.io/proxy: http2
+    skupper.io/address: "recommendationservice"
+    skupper.io/port: "8080"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
@@ -147,9 +147,9 @@ kind: Deployment
 metadata:
   name: productcatalogservice
   annotations:
-    skupper.io/address: productcatalogservice
-    skupper.io/port: 3350
-    skupper.io/proxy: http2
+    skupper.io/address: "productcatalogservice"
+    skupper.io/port: "3350"
+    skupper.io/proxy: "http2"
 spec:
   selector:
     matchLabels:
