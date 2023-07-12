@@ -1,0 +1,22 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: frontend
+  namespace: demo
+  labels:
+    app: service-interconnect
+    app.kubernetes.io/part-of: service-interconnect
+    apps.open-cluster-management.io/reconcile-rate: medium
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: frontend-demo.apps-crc.testing
+  to:
+    kind: Service
+    name: frontend-external
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+  wildcardPolicy: None
