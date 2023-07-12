@@ -1,6 +1,7 @@
 resources:
 - ../base
 - deployment-ms-a.yaml
+- loadgenerator.yaml
 patches:
 - target:
     version: v1
