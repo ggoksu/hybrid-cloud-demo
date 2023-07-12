@@ -31,7 +31,7 @@ spec:
       containers:
         - name: patient-portal-database
           image: >-
-            image-registry.openshift-image-registry.svc:5000/demo/patient-portal-database@sha256:a7e3b4dda0ab2c7936378fe123917e58bc102861dc26ac9253f3082c4fe973db
+            quay.io/skupper/patient-portal-database
           ports:
             - containerPort: 5432
               protocol: TCP
