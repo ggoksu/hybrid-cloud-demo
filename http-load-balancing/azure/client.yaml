@@ -19,5 +19,9 @@ spec:
           value: "50"
         - name: SKUPPER_EXAMPLE_SERVICE_NAME
           value: "httpsvc"
+        - name: httpsvc_SERVICE_HOST
+          value: "httpsvc"
+        - name: httpsvc_SERVICE_PORT
+          value: "8080"
         image: quay.io/skupper/skupper-http-client
         imagePullPolicy: Always
