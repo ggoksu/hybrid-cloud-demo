@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: http-client
+  template:
+    metadata:
+      labels:
+        application: http-client
+    spec:
+      containers:
+      - name: client
+        env:
+        - name: SKUPPER_EXAMPLE_CONCURRENCY
+          value: "50"
+        - name: SKUPPER_EXAMPLE_SERVICE_NAME
+          value: "HTTPSVC"
+        image: quay.io/skupper/skupper-http-client
+        imagePullPolicy: Always
