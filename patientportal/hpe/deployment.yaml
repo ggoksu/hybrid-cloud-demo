@@ -1,0 +1,57 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    skupper.io/address: "database"
+    skupper.io/port: "5432"
+    skupper.io/proxy: "tcp"
+  name: patient-portal-database
+  namespace: demo
+  labels:
+    app: patient-portal-database
+    app.kubernetes.io/component: patient-portal-database
+    app.kubernetes.io/instance: patient-portal-database
+    app.kubernetes.io/name: patient-portal-database
+    app.kubernetes.io/part-of: patient-portal-database-app
+    app.openshift.io/runtime-namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-portal-database
+  template:
+    metadata:
+      labels:
+        app: patient-portal-database
+        deployment: patient-portal-database
+    spec:
+      volumes:
+        - name: patient-portal-database-1
+          emptyDir: {}
+      containers:
+        - name: patient-portal-database
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/demo/patient-portal-database@sha256:a7e3b4dda0ab2c7936378fe123917e58bc102861dc26ac9253f3082c4fe973db
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: patient-portal-database-1
+              mountPath: /var/lib/postgresql/data
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext:
+        runAsNonRoot: true
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
