@@ -144,7 +144,7 @@ metadata:
   annotations:
     skupper.io/address: "redis-cart"
     skupper.io/port: "6379"
-    skupper.io/proxy: "http2"
+    skupper.io/proxy: "tcp"
 spec:
   selector:
     matchLabels:
